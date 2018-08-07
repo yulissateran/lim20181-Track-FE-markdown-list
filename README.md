@@ -157,6 +157,8 @@ manera a través de la consola:
 
 `md-links <path-to-file> [options]`
 
+![img_20180807_165632844](https://user-images.githubusercontent.com/32286663/43805090-1d60faee-9a64-11e8-974d-78f0382f7bc0.jpg)
+
 Por ejemplo:
 
 ```sh
@@ -224,7 +226,7 @@ para usarlo programáticamente.
 
 Una vez que tengas el entregable
 
-- Implementar la librería para que pueda recibir una carpeta e leer todos archivos markdown dentro de una carpeta(directorio).
+- Implementar la librería para que pueda recibir como path(ruta) una carpeta/directorio con diversos archivos para que pueda buscar y encontrar los links de todos archivos markdown encontrados dentro de la carpeta/directorio.
 
 ## Pistas / Tips
 
