@@ -74,7 +74,11 @@ considere necesario. Como parte del proyecto, tendrás que:
 
 ### Documentación
 
-[tbd]
+- Descripción general de la librería.
+- Instrucciones de instalación.
+- Versiones de la librería.
+- Documentación de la Librería (Features, link de Demo, test, etc...).
+- Ejemplos (snippets) de uso.
 
 ### Archivos
 
@@ -102,6 +106,8 @@ siguiente interfaz:
 
 #### `mdLinks(path, options)`
 
+![img_20180807_161238402](https://user-images.githubusercontent.com/32286663/43803949-faa92368-9a5f-11e8-95d8-181de7121d34.jpg)
+
 ##### Argumentos
 
 - `path`: Ruta absoluta o relativa al archivo markdown o directorio donde buscar
@@ -109,8 +115,8 @@ siguiente interfaz:
   resolverse como relativa al directorio desde donde se invoca node - _current
   working directory_).
 - `options`: Un objeto con las siguientes propiedades:
-  - `validate`: ...
-  - `exclude`: ...
+  - `validate`: Valor que determina si se desea validar los links encontrados en el archivo.
+  - `stats`: Valor que determina si se desea calcular los stats de de los links encontrados en el archivo.
 
 ##### Valor de retorno
 
@@ -127,15 +133,21 @@ las siguientes propiedades:
 ```js
 const mdLinks = require("md-links");
 
-mdLinks("./some/dir")
+mdLinks("./some/example.md")
   .then(links => {
-    // => [{ href, text, file, line }]
+    // => [{ href, text, file }]
   })
   .catch(console.error);
 
-mdLinks("./some/dir", { validate: true })
+mdLinks("./some/example.md", { validate: true })
   .then(links => {
-    // => [{ href, text, file, line, status, ok }]
+    // => [{ href, text, file, status, ok }]
+  })
+  .catch(console.error);
+
+mdLinks('./some/example.md', { stats: true })
+  .then((links) => {
+    // => [{ href, text, file, total, unique, domains }]
   })
   .catch(console.error);
 ```
@@ -150,10 +162,10 @@ manera:
 Por ejemplo:
 
 ```sh
-$ md-links ./some/dir/
-./some/dir/README.md:30 http://algo.com/2/3/ Link a algo
-./some/dir/README.md:44 https://otra-cosa.net/algun-doc.html algún doc
-./some/dir/CONTRIBUTING.md:12 http://google.com/ Google
+$ md-links ./some/example.md
+./some/example.mdREADME.md http://algo.com/2/3/ Link a algo
+./some/example.mdREADME.md https://otra-cosa.net/algun-doc.html algún doc
+./some/example.mdCONTRIBUTING.md http://google.com/ Google
 ```
 
 El comportamiento por defecto no debe validar si las URLs responden ok o no,
@@ -173,10 +185,10 @@ URL que responde ok, entonces consideraremos el link como ok.
 Por ejemplo:
 
 ```sh
-$ md-links ./some/dir/ --validate
-./some/dir/README.md:30 http://algo.com/2/3/ ok 200 Link a algo
-./some/dir/README.md:44 https://otra-cosa.net/algun-doc.html fail 404 algún doc
-./some/dir/CONTRIBUTING.md:12 http://google.com/ ok 301 Google
+$ md-links ./some/example.md --validate
+./some/example.mdREADME.md http://algo.com/2/3/ ok 200 Link a algo
+./some/example.mdREADME.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
+./some/example.mdCONTRIBUTING.md http://google.com/ ok 301 Google
 ```
 
 Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
@@ -189,7 +201,7 @@ Si pasamos la opción `--stats` el output (salida) será un texto con estadísti
 básicas sobre los links.
 
 ```sh
-$ md-links ./some/dir/ --stats
+$ md-links ./some/example.md --stats
 Total: 3
 Unique: 3
 Domains: 3
@@ -199,7 +211,7 @@ También podemos combinar `--stats` y `--validate` para obtener estadísticas qu
 necesiten de los resultados de la validación.
 
 ```sh
-$ md-links ./some/dir/ --stats --validate
+$ md-links ./some/example.md --stats --validate
 Total: 3
 Unique: 3
 Domains: 3
@@ -216,7 +228,20 @@ para usarlo programáticamente.
 
 Una vez que tengas el entregable
 
+- Poder encontrar arcivos markdown dentro de una carpeta(directorio).
 - Integración continua con Travis o Circle CI
 - Coverage con Coveralls
 - Más estadísticas?
 - Browser compatible (input as string)?
+
+## Pistas / Tips
+
+- [Marked](https://github.com/markedjs/marked/blob/master/docs/USING_PRO.md)
+- [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
+- [Publicar packpage](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- [Crear módulos en Node.js](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- [Leer un archivo](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
+- [Leer un Directorio](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
+- [Path](https://nodejs.org/api/path.html)
+- Crea tu propio Cli : <https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e>
+- Hacker Edition : <https://codeburst.io/how-to-create-and-publish-your-first-node-js-module-444e7585b738>
