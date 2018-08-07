@@ -48,7 +48,7 @@ Este proyecto se debe "resolver" de manera individual.
 La librería debe estar implementada en JavaScript para ser ejecutada con
 Node.js.
 
-## Consideraciones técnicas
+## Parte obligatoria
 
 La aplicación debe exponer un ejecutable _archivo cli_ que podamos invocar en la línea de
 comando, además de una API programático para poder usar el módulo como
@@ -71,14 +71,6 @@ considere necesario. Como parte del proyecto, tendrás que:
 - Conseguir que algunos _usuarios_ usen la herramienta (valga la redundancia)
 - Recibir feedback (feature requests, bugs, ...) y actuar sobre ese feedback
 - Preparar un primer release estable (`v1.0.0`)
-
-## Parte obligatoria
-
-- Los test unitarios los cuales deben ser ejecutados desde el inicio del proyecto, recuerda no implementarlos al final
-
-- Linea de comando para nodejs
-
-- Modulo de md-links
 
 ### Documentación
 
