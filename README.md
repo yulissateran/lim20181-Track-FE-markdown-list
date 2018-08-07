@@ -23,10 +23,6 @@ estadísticas.
 Hasta el momento hemos trabajado con javascript desde el navegador, sin embargo hemos oído hablar de Node.js como tecnología que permite trabajar con Javascript del lado del servidor.
 Para este proyecto haremos uso de Node.js que a través de sus diferentes módulos `path, filesystem, node-fetch, etc` nos ayudará a construir nuestra librería
 
-- [Nodejs y npm](https://www.genbeta.com/desarrollo/node-js-y-npm)
-
-- [Módulos, librerías, paquetes, frameworks... ¿cuál es la diferencia?](http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175)
-
 ## Objetivos
 
 El objetivo práctico de este reto es que aprendas cómo crear tu propia librería
@@ -35,12 +31,6 @@ Diseñar tu propia librería es una experiencia fundamental para cualquier
 desarrollador ya que te obliga a pensar en la interfaz (API) de tus _módulos_,
 cómo serán usados por otras personas, ... y tener especial consideración en
 peculiaridades del lenguaje, convenciones y buenas prácticas.
-
-Tópicos:
-[Semver](https://semver.org/), [Node.js](https://nodejs.org/en/),
-[File System](https://nodejs.org/api/fs.html), [marked](https://github.com/markedjs/marked),
-[Markdown](https://daringfireball.net/projects/markdown/syntax)
-[Path](https://nodejs.org/api/path.html)
 
 ## Consideraciones generales
 
@@ -72,6 +62,19 @@ considere necesario. Como parte del proyecto, tendrás que:
 - Recibir feedback (feature requests, bugs, ...) y actuar sobre ese feedback
 - Preparar un primer release estable (`v1.0.0`)
 
+Para este proyecto necesitarás revisar los siguientes tópicos
+
+Tópicos:
+
+- [Node.js](https://nodejs.org/en/)
+- [Node.js y npm](https://www.genbeta.com/desarrollo/node-js-y-npm)
+- [Módulos, librerías, paquetes, frameworks... ¿cuál es la diferencia?](http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175)
+- [Semver](https://semver.org/)
+- [Path](https://nodejs.org/api/path.html)
+- [File System](https://nodejs.org/api/fs.html)
+- [marked](https://github.com/markedjs/marked)
+- [Asíncronía en Javascript](https://carlosazaustre.com/manejando-la-asincronia-en-javascript/)
+
 ### Documentación
 
 - Descripción general de la librería.
@@ -80,7 +83,7 @@ considere necesario. Como parte del proyecto, tendrás que:
 - Documentación de la Librería (Features, link de Demo, test, etc...).
 - Ejemplos (snippets) de uso.
 
-### Archivos
+### Archivos del proyecto
 
 - `README.md` con descripción del módulo, instrucciones de instalación, uso y
   documentación del API.
@@ -89,15 +92,12 @@ considere necesario. Como parte del proyecto, tendrás que:
   dependencias, scripts (pretest, test, ...)
 - `.editorconfig` con configuración para editores de texto. Este archivo no se
   debe cambiar.
-- `.eslintrc` con configuración para linter (ver [guía de estilo de
-  JavaScript](https://github.com/Laboratoria/js-style-guide)). Este archivo no
+- `.eslintrc` con configuración para linter. Este archivo no
   se debe cambiar.
 - `.gitignore` para ignorar `node_modules` u otras carpetas que no deban
   incluirse en control de versiones (`git`).
 - `test/md-links.spec.js` debe contener los tests unitarios para la función
-  `mdLinks()`. A este archivo le puedes agregar nuevos tests, pero no debes
-  modificar los tests que ya vienen en _boilerplate_ (tu inplementación debe
-  pasar estos tets).
+  `mdLinks()`tu inplementación debe pasar estos tets.
 
 ### JavaScript API
 
