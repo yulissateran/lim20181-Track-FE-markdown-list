@@ -62,8 +62,6 @@ considere necesario. Como parte del proyecto, tendrás que:
 - Recibir feedback (feature requests, bugs, ...) y actuar sobre ese feedback
 - Preparar un primer release estable (`v1.0.0`)
 
-### Documentación
-
 Para este proyecto necesitarás revisar los siguientes tópicos
 
 Tópicos:
@@ -76,6 +74,14 @@ Tópicos:
 - [File System](https://nodejs.org/api/fs.html)
 - [marked](https://github.com/markedjs/marked)
 - [Asíncronía en js](https://carlosazaustre.com/manejando-la-asincronia-en-javascript/)
+
+### Documentación
+
+- Descripción general de la librería.
+- Instrucciones de instalación.
+- Versiones de la librería.
+- Documentación de la Librería (Features, link de Demo, test, etc...).
+- Ejemplos (snippets) de uso.
 
 ### Archivos del proyecto
 
@@ -100,13 +106,15 @@ siguiente interfaz:
 
 #### `mdLinks(path, options)`
 
+![img_20180807_161238402](https://user-images.githubusercontent.com/32286663/43803949-faa92368-9a5f-11e8-95d8-181de7121d34.jpg)
+
 ##### Argumentos
 
 - `path`: Ruta absoluta o relativa al archivo markdown. Si la ruta pasada es relativa, debe resolverse como relativa al directorio desde donde se invoca node - _currentworking directory_).
 
 - `options`: Un objeto con las siguientes propiedades:
-  - `validate`: ...
-  - `exclude`: ...
+  - `validate`: Valor que determina si se desea validar los links encontrados en el archivo.
+  - `stats`: Valor que determina si se desea calcular los stats de de los links encontrados en el archivo.
 
 ##### Valor de retorno
 
@@ -123,15 +131,21 @@ las siguientes propiedades:
 ```js
 const mdLinks = require("md-links");
 
-mdLinks("./some/readme.md")
+mdLinks("./some/example.md")
   .then(links => {
     // => [{ href, text, file }]
   })
   .catch(console.error);
 
-mdLinks("./some/readme.md", { validate: true })
+mdLinks("./some/example.md", { validate: true })
   .then(links => {
     // => [{ href, text, file, status, ok }]
+  })
+  .catch(console.error);
+
+mdLinks("./some/example.md", { stats: true })
+  .then(links => {
+    // => [{ href, text, file, total, unique, domains }]
   })
   .catch(console.error);
 ```
@@ -139,16 +153,17 @@ mdLinks("./some/readme.md", { validate: true })
 ### CLI
 
 El ejecutable de nuestra aplicación debe poder ejecutarse de la siguiente
-manera:
+manera a través de la consola:
 
 `md-links <path-to-file> [options]`
 
 Por ejemplo:
 
 ```sh
-$ md-links ./some/readme.md
-./some/README.md:30 http://algo.com/2/3/ Link a algo
-./some/README.md:44 https://otra-cosa.net/algun-doc.html algún doc
+$ md-links ./some/example.md
+./some/example.md http://algo.com/2/3/ Link a algo
+./some/example.md https://otra-cosa.net/algun-doc.html algún doc
+./some/example.md http://google.com/ Google
 ```
 
 El comportamiento por defecto no debe validar si las URLs responden ok o no,
@@ -168,9 +183,10 @@ URL que responde ok, entonces consideraremos el link como ok.
 Por ejemplo:
 
 ```sh
-$ md-links ./some/readme.md --validate
-./some/README.md:30 http://algo.com/2/3/ ok 200 Link a algo
-./some/README.md:44 https://otra-cosa.net/algun-doc.html fail 404 algún doc
+$ md-links ./some/example.md --validate
+./some/example.md http://algo.com/2/3/ ok 200 Link a algo
+./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
+./some/example.md http://google.com/ ok 301 Google
 ```
 
 Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
@@ -183,18 +199,18 @@ Si pasamos la opción `--stats` el output (salida) será un texto con estadísti
 básicas sobre los links.
 
 ```sh
-$ md-links ./some/readme.md --stats
-Total: 2
-Unique: 2
+$ md-links ./some/example.md --stats
+Total: 3
+Unique: 3
 ```
 
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
 
 ```sh
-$ md-links ./some/readme.md --stats --validate
-Total: 2
-Unique: 2
+$ md-links ./some/example.md --stats --validate
+Total: 3
+Unique: 3
 Broken: 1
 ```
 
@@ -205,3 +221,18 @@ incluir tanto un ejecutable como una interfaz que podamos importar con `require`
 para usarlo programáticamente.
 
 ## Hacker edition
+
+Una vez que tengas el entregable
+
+- Implementar la librería para que pueda recibir una carpeta e leer todos archivos markdown dentro de una carpeta(directorio).
+
+## Pistas / Tips
+
+- [Marked](https://github.com/markedjs/marked/blob/master/docs/USING_PRO.md)
+- [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
+- [Publicar packpage](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- [Crear módulos en Node.js](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- [Leer un archivo](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
+- [Leer un Directorio](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
+- [Path](https://nodejs.org/api/path.html)
+- [Linea de comando CLI](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e)
