@@ -3,33 +3,37 @@
 ## Preámbulo
 
 [Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado
-ligero muy popular entre developers, y es usado en un montón de plataformas que
-manejan texto plano en la web (GitHub, foros, blogs, ...).
+ligero muy popular entre developers. Es usado en muchísimas plataformas que
+manejan texto plano (GitHub, foros, blogs, ...), y es muy común
+encontrar varios archivos en ese formato en cualquier tipo de repositorio
+(empezando por el tradicional `README.md`).
 
-Es muy común encontrar varios archivos en formato `Markdown` en cualquier tipo
-de repositorio (empezando por el tradicional `README.md`). Estos archivos
-`Markdown` normalmente contienen _links_ (vínculos), y desgraciadamente a veces
-estos links están rotos o ya no son válidos.
+Estos archivos `Markdown` normalmente contienen _links_ (vínculos/ligas) que
+muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de
+la información que se quiere compartir.
 
 Dentro de una comunidad de código abierto, nos han propuesto crear una
-herramienta usando [Node.js](https://nodejs.org/) para leer y analizar archivos
-en formato `Markdown` y verificar los links, así como reportar una serie de
-estadísticas.
+herramienta usando [Node.js](https://nodejs.org/), que lea y analice archivos
+en formato `Markdown`, para verificar los links que contengan y reportar una
+algunas estadísticas.
 
 ![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)
 
 ## Introducción
 
-Hasta el momento hemos trabajado con javascript desde el navegador, sin embargo hemos oído hablar de Node.js como tecnología que permite trabajar con Javascript del lado del servidor.
-Para este proyecto haremos uso de Node.js que a través de sus diferentes módulos `path, filesystem, node-fetch, etc` nos ayudará a construir nuestra librería
+Hasta ahora hemos trabajado con Javascript desde el navegador, sin embargo, hemos
+oído hablar de Node.js como una tecnología que permite trabajar con Javascript
+del lado del servidor. En este proyecto usaremos Node.js que, gracias a sus
+diferentes módulos `path, filesystem, node-fetch, etc`, nos ayudará a
+conseguir lo que necesitamos.
 
 ## Objetivos
 
-El objetivo práctico de este reto es que aprendas cómo crear tu propia librería
-(o biblioteca - _library_) en JavaScript.
+El objetivo práctico de este proyecto es que aprendas cómo crear tu propia
+**librería** (o biblioteca - _library_) en JavaScript.
 Diseñar tu propia librería es una experiencia fundamental para cualquier
-desarrollador ya que te obliga a pensar en la interfaz (API) de tus _módulos_,
-cómo serán usados por otras personas, ... y tener especial consideración en
+desarrollador porque que te obliga a pensar en la interfaz (API) de tus _módulos_,
+cómo serán usados por otras personas, y a tener especial consideración en
 peculiaridades del lenguaje, convenciones y buenas prácticas.
 
 ## Consideraciones generales
@@ -40,8 +44,8 @@ Node.js.
 
 ## Parte obligatoria
 
-La aplicación debe exponer un ejecutable _archivo cli_ que podamos invocar en la línea de
-comando, además de una API programático para poder usar el módulo como
+La aplicación debe exponer un ejecutable (_archivo cli_) que podamos invocar en
+la línea de comando y una API programático para poder usar el módulo como
 dependencia desde otros scripts.
 
 Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
@@ -50,17 +54,20 @@ _lines_ y _branches_.
 Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
 
-Una vez creados los equipos, es hora de crear un plan de acción. Esto debería
-quedar detallado en el `README.md` de tu repo así como en una serie de _issues_
-y _milestones_ para coordinar el trabajo y poder hacer seguimiento del progreso.
+Antes de comenzar a codear, es necesario crear un plan de acción. Esto debería
+quedar detallado en el `README.md` de tu repo y en una serie de _issues_
+y _milestones_ para priorizar y organizar el trabajo, y para poder hacer
+seguimiento de tu progreso.
 
-Dentro de cada _milestone_ se crearán y asignarán los _issues_ que cada equipo
-considere necesario. Como parte del proyecto, tendrás que:
+Dentro de cada _milestone_ se crearán y asignarán los _issues_ que cada quien
+considere necesarios.
 
-- Hacer un _pre-release_ (una versión _alpha_ o _beta_)
-- Conseguir que algunos _usuarios_ usen la herramienta (valga la redundancia)
-- Recibir feedback (feature requests, bugs, ...) y actuar sobre ese feedback
-- Preparar un primer release estable (`v1.0.0`)
+Como parte del proyecto, tendrás que:
+
+- Hacer un _pre-release_ (una versión _alpha_ o _beta_).
+- Conseguir que algunos _usuarios_ usen la herramienta (valga la redundancia).
+- Recibir feedback (feature requests, bugs, ...) y actuar sobre ese feedback.
+- Preparar un primer _release_ estable (`v1.0.0`).
 
 Para este proyecto necesitarás revisar los siguientes tópicos
 
@@ -75,13 +82,13 @@ Tópicos:
 - [marked](https://github.com/markedjs/marked)
 - [Asíncronía en js](https://carlosazaustre.com/manejando-la-asincronia-en-javascript/)
 
-### Documentación
+### Documentación requerida
 
 - Descripción general de la librería.
 - Instrucciones de instalación.
 - Versiones de la librería.
 - Documentación de la Librería (Features, link de Demo, test, etc...).
-- Ejemplos (snippets) de uso.
+- Ejemplos (_snippets_) de uso.
 
 ### Archivos del proyecto
 
