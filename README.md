@@ -21,19 +21,20 @@ algunas estadísticas.
 
 ## Introducción
 
-Hasta ahora hemos trabajado con Javascript desde el navegador, sin embargo, hemos
-oído hablar de Node.js como una tecnología que permite trabajar con Javascript
-del lado del servidor. En este proyecto usaremos Node.js que, gracias a sus
-diferentes módulos `path, filesystem, node-fetch, etc`, nos ayudará a
-conseguir lo que necesitamos.
+[Node.js](https://nodejs.org/es/) es un entorno de ejecución para JavaScript
+construido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).
+Esto nos va a permitir ejecura JavaScript en el entorno del sistema operativo,
+ya sea tu máquina o un servidor, lo cual nos abre las puertas para poder interactuar con el sistema operativo, sistema de archivos, redes, ...
+En este proyecto nos alejamos un poco del navegador para construir un programa
+que se ejecute usando Node.js, donde aprenderemos sobre cómo interactuar con el
+sistema archivos, con el entorno (proceso, env, stdin/stdout/stderr), ...
 
 ## Objetivos
 
 El objetivo práctico de este proyecto es que aprendas cómo crear tu propia
 **librería** (o biblioteca - _library_) en JavaScript.
 Diseñar tu propia librería es una experiencia fundamental para cualquier
-desarrollador porque que te obliga a pensar en la interfaz (API) de tus _módulos_,
-cómo serán usados por otras personas, y a tener especial consideración en
+desarrollador porque que te obliga a pensar en la interfaz (API) de tus _módulos_ y como será usado por otros developers, debes tener especial consideración en
 peculiaridades del lenguaje, convenciones y buenas prácticas.
 
 ## Consideraciones generales
@@ -75,7 +76,7 @@ Tópicos:
 
 - [Node.js](https://nodejs.org/en/)
 - [Node.js y npm](https://www.genbeta.com/desarrollo/node-js-y-npm)
-- [Módulos, librerías, paquetes, frameworks... ¿cuál es la diferencia?](http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175)
+- [Módulos, librerías, paquetes, frameworks... ¿cuál es la diferencia?](http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175) -[Módulos(CommonJS)](https://nodejs.org/docs/latest-v0.10.x/api/modules.html),)
 - [Semver](https://semver.org/)
 - [Path](https://nodejs.org/api/path.html)
 - [File System](https://nodejs.org/api/fs.html)
@@ -84,11 +85,15 @@ Tópicos:
 
 ### Documentación requerida
 
+En el archivo _README_ de tu proyecto tendrás que incluir:
+
 - Descripción general de la librería.
 - Instrucciones de instalación.
 - Versiones de la librería.
 - Documentación de la Librería (Features, link de Demo, test, etc...).
 - Ejemplos (_snippets_) de uso.
+
+Y todo lo relevante para que cualquier developer que quiera usar tu librería pueda hacerlo sin inconvenientes
 
 ### Archivos del proyecto
 
@@ -111,7 +116,7 @@ Tópicos:
 El módulo debe poder importarse en otros scripts de Node.js y debe ofrecer la
 siguiente interfaz:
 
-#### `mdLinks(path, options)`
+#### `Función: mdLinks(path, options)`
 
 ##### Argumentos
 
@@ -155,7 +160,7 @@ mdLinks("./some/example.md", { stats: true })
   .catch(console.error);
 ```
 
-### CLI
+### CLI (Línea de comando)
 
 El ejecutable de nuestra aplicación debe poder ejecutarse de la siguiente
 manera a través de la consola:
@@ -227,11 +232,54 @@ para usarlo programáticamente.
 
 ## Hacker edition
 
-Una vez que tengas el entregable
+- Implementar la librería para que pueda recibir como path(ruta) una carpeta/directorio con diversos archivos y obtengas los links de todos los archivos markdown.
 
-- Implementar la librería para que pueda recibir como path(ruta) una carpeta/directorio con diversos archivos para que pueda buscar y encontrar los links de todos archivos markdown encontrados dentro de la carpeta/directorio.
+## Evaluación
 
-## Pistas / Tips
+### Tech
+
+| Habilidad              | Nivel esperado |
+| ---------------------- | -------------- |
+| **JavaScript**         |                |
+| Estilo                 | 4              |
+| Nomenclatura/semántica | 3              |
+| Funciones/modularidad  | 3              |
+| Estructuras de datos   | 2              |
+| Tests                  | 4              |
+| **HTML**               |                |
+| Validación             | n/a            |
+| Estilo                 | n/a            |
+| Semántica              | n/a            |
+| SEO                    | n/a            |
+| **CSS**                |                |
+| DRY                    | n/a            |
+| Responsive             | n/a            |
+| **SCM**                |                |
+| Git                    | 3              |
+| GitHub                 | 3              |
+| **CS**                 |                |
+| Lógica                 | 3              |
+| Arquitectura           | 3              |
+| Patrones/paradigmas    | n/a            |
+
+### Habilidades Blandas
+
+Para este proyecto esperamos que ya hayas alcanzado el nivel 3 en todas tus
+habilidades blandas. Te aconsejamos revisar la rúbrica:
+| Habilidad | Nivel esperado |
+|-----------|----------------|
+| Planificación y organización | 4
+| Autoaprendizaje | 4
+| Solución de Problemas | 4
+| Dar y recibir feedback | 4
+| Adaptabilidad | 4
+| Trabajo en equipo (trabajo colaborativo y responsabilidad) | 4
+| Comunicación eficaz | 4
+| Presentaciones | 4
+
+## Pistas / Tips / Recursos
+
+### Pistas
 
 - [Marked](https://github.com/markedjs/marked/blob/master/docs/USING_PRO.md)
 - [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
@@ -241,3 +289,20 @@ Una vez que tengas el entregable
 - [Leer un Directorio](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
 - [Path](https://nodejs.org/api/path.html)
 - [Linea de comando CLI](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e)
+
+### Tutoriales / NodeSchool workshoppers
+
+- [learnyounode](https://github.com/workshopper/learnyounode)
+- [how-to-npm](https://github.com/workshopper/how-to-npm)
+- [promise-it-wont-hurt](https://github.com/stevekane/promise-it-wont-hurt)
+
+### Otros recursos
+
+- [Acerca de Node.js - Documentación oficial](https://nodejs.org/es/about/)
+- [Node.js file system - Documentación oficial](https://nodejs.org/api/fs.html)
+- [Node.js http.get - Documentación oficial](https://nodejs.org/api/http.html#http_http_get_options_callback)
+- [Node.js - Wikipedia](https://es.wikipedia.org/wiki/Node.js)
+- [What exactly is Node.js? - freeCodeCamp](https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5)
+- [¿Qué es Node.js y para qué sirve? - drauta.com](https://www.drauta.com/que-es-nodejs-y-para-que-sirve)
+- [¿Qué es Nodejs? Javascript en el Servidor - Fazt en YouTube](https://www.youtube.com/watch?v=WgSc1nv_4Gw)
+- [¿Simplemente qué es Node.js? - IBM Developer Works, 2011](https://www.ibm.com/developerworks/ssa/opensource/library/os-nodejs/index.html)
