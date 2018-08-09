@@ -64,13 +64,6 @@ seguimiento de tu progreso.
 Dentro de cada _milestone_ se crearán y asignarán los _issues_ que cada quien
 considere necesarios.
 
-Como parte del proyecto, tendrás que:
-
-- Hacer un _pre-release_ (una versión _alpha_ o _beta_).
-- Conseguir que algunos _usuarios_ usen la herramienta (valga la redundancia).
-- Recibir feedback (feature requests, bugs, ...) y actuar sobre ese feedback.
-- Preparar un primer _release_ estable (`v1.0.0`).
-
 Para este proyecto necesitarás revisar los siguientes tópicos
 
 Tópicos:
@@ -233,7 +226,7 @@ para usarlo programáticamente.
 
 ## Hacker edition
 
-- Implementar la librería para que pueda recibir como path(ruta )una carpeta/directorio con diversos archivos y obtengas los links de todos los archivos markdown.
+- Implementar la librería para que pueda recibir como path(ruta) una carpeta/directorio con diversos archivos y obtengas los links de todos los archivos markdown.
 
 ## Pistas / Tips / Recursos
 
