@@ -266,16 +266,17 @@ para usarlo programáticamente.
 
 Para este proyecto esperamos que ya hayas alcanzado el nivel 3 en todas tus
 habilidades blandas. Te aconsejamos revisar la rúbrica:
-| Habilidad | Nivel esperado |
-|-----------|----------------|
-| Planificación y organización | 4
-| Autoaprendizaje | 4
-| Solución de Problemas | 4
-| Dar y recibir feedback | 4
-| Adaptabilidad | 4
-| Trabajo en equipo (trabajo colaborativo y responsabilidad) | 4
-| Comunicación eficaz | 4
-| Presentaciones | 4
+
+| Habilidad                                                  | Nivel esperado |
+| ---------------------------------------------------------- | -------------- |
+| Planificación y organización                               | 4              |
+| Autoaprendizaje                                            | 4              |
+| Solución de Problemas                                      | 4              |
+| Dar y recibir feedback                                     | 4              |
+| Adaptabilidad                                              | 4              |
+| Trabajo en equipo (trabajo colaborativo y responsabilidad) | 4              |
+| Comunicación eficaz                                        | 4              |
+| Presentaciones                                             | 4              |
 
 ## Pistas / Tips / Recursos
 
