@@ -280,7 +280,7 @@ para usarlo programáticamente.
 
 ### Habilidades Blandas
 
-Para este proyecto esperamos que ya hayas alcanzado el nivel 3 en todas tus
+Para este proyecto esperamos que ya hayas alcanzado el nivel 4 en todas tus
 habilidades blandas. Te aconsejamos revisar la rúbrica:
 
 | Habilidad                                                  | Nivel esperado |
@@ -298,16 +298,16 @@ habilidades blandas. Te aconsejamos revisar la rúbrica:
 
 ### General
 
-- [ ] Entrega el link del modulo publicado en npm
+- [ ] Entrega el link del módulo publicado en npm
 
 ### `README.md`
 
 - [ ] Un board con el backlog para la implementación de la librería.
 - [ ] Documentación técnica de la librería.
-- [ ] Guia de uso e instalación de la librería
+- [ ] Guía de uso e instalación de la librería
 
 ### Pruebas / tests
 
-- [ ] Pruebas unitarios cubren un mínimo del 70% de statements, functions,
+- [ ] Pruebas unitarias cubren un mínimo del 70% de statements, functions,
       lines, y branches.
 - [ ] Pasa tests (y linters) (`npm test`).
