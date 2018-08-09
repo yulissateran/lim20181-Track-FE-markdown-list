@@ -45,12 +45,13 @@ Node.js.
 
 ## Parte obligatoria
 
-La aplicación debe exponer un ejecutable (_archivo cli_) que podamos invocar en
-la línea de comando y una API programático para poder usar el módulo como
-dependencia desde otros scripts.
+Módulo instalable via `npm install <github-user>/md-links`. Este módulo debe
+incluir tanto un ejecutable (_archivo cli_) que podamos invocar en
+la línea de comando como una interfaz que podamos importar con `require`
+para usarlo programáticamente.
 
 Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-_lines_ y _branches_.
+_lines_ y _branches_. _lines_ y _branches_. Te recomendamos explorar [Jest](https://jestjs.io/) para tus pruebas unitarias.
 
 Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
@@ -232,7 +233,37 @@ para usarlo programáticamente.
 
 ## Hacker edition
 
-- Implementar la librería para que pueda recibir como path(ruta) una carpeta/directorio con diversos archivos y obtengas los links de todos los archivos markdown.
+- Implementar la librería para que pueda recibir como path(ruta )una carpeta/directorio con diversos archivos y obtengas los links de todos los archivos markdown.
+
+## Pistas / Tips / Recursos
+
+### Pistas
+
+- [Marked](https://github.com/markedjs/marked/blob/master/docs/USING_PRO.md)
+- [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
+- [Publicar packpage](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- [Crear módulos en Node.js](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- [Leer un archivo](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
+- [Leer un Directorio](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
+- [Path](https://nodejs.org/api/path.html)
+- [Linea de comando CLI](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e)
+
+### Tutoriales / NodeSchool workshoppers
+
+- [learnyounode](https://github.com/workshopper/learnyounode)
+- [how-to-npm](https://github.com/workshopper/how-to-npm)
+- [promise-it-wont-hurt](https://github.com/stevekane/promise-it-wont-hurt)
+
+### Otros recursos
+
+- [Acerca de Node.js - Documentación oficial](https://nodejs.org/es/about/)
+- [Node.js file system - Documentación oficial](https://nodejs.org/api/fs.html)
+- [Node.js http.get - Documentación oficial](https://nodejs.org/api/http.html#http_http_get_options_callback)
+- [Node.js - Wikipedia](https://es.wikipedia.org/wiki/Node.js)
+- [What exactly is Node.js? - freeCodeCamp](https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5)
+- [¿Qué es Node.js y para qué sirve? - drauta.com](https://www.drauta.com/que-es-nodejs-y-para-que-sirve)
+- [¿Qué es Nodejs? Javascript en el Servidor - Fazt en YouTube](https://www.youtube.com/watch?v=WgSc1nv_4Gw)
+- [¿Simplemente qué es Node.js? - IBM Developer Works, 2011](https://www.ibm.com/developerworks/ssa/opensource/library/os-nodejs/index.html)
 
 ## Evaluación
 
@@ -270,32 +301,20 @@ habilidades blandas. Te aconsejamos revisar la rúbrica:
 | Comunicación eficaz                                        | 4              |
 | Presentaciones                                             | 4              |
 
-## Pistas / Tips / Recursos
+## Checklist
 
-### Pistas
+### General
 
-- [Marked](https://github.com/markedjs/marked/blob/master/docs/USING_PRO.md)
-- [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
-- [Publicar packpage](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- [Crear módulos en Node.js](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- [Leer un archivo](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
-- [Leer un Directorio](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
-- [Path](https://nodejs.org/api/path.html)
-- [Linea de comando CLI](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e)
+- [ ] Entrega el link del modulo publicado en npm
 
-### Tutoriales / NodeSchool workshoppers
+### `README.md`
 
-- [learnyounode](https://github.com/workshopper/learnyounode)
-- [how-to-npm](https://github.com/workshopper/how-to-npm)
-- [promise-it-wont-hurt](https://github.com/stevekane/promise-it-wont-hurt)
+- [ ] Un board con el backlog para la implementación de la librería.
+- [ ] Documentación técnica de la librería.
+- [ ] Guia de uso e instalación de la librería
 
-### Otros recursos
+### Pruebas / tests
 
-- [Acerca de Node.js - Documentación oficial](https://nodejs.org/es/about/)
-- [Node.js file system - Documentación oficial](https://nodejs.org/api/fs.html)
-- [Node.js http.get - Documentación oficial](https://nodejs.org/api/http.html#http_http_get_options_callback)
-- [Node.js - Wikipedia](https://es.wikipedia.org/wiki/Node.js)
-- [What exactly is Node.js? - freeCodeCamp](https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5)
-- [¿Qué es Node.js y para qué sirve? - drauta.com](https://www.drauta.com/que-es-nodejs-y-para-que-sirve)
-- [¿Qué es Nodejs? Javascript en el Servidor - Fazt en YouTube](https://www.youtube.com/watch?v=WgSc1nv_4Gw)
-- [¿Simplemente qué es Node.js? - IBM Developer Works, 2011](https://www.ibm.com/developerworks/ssa/opensource/library/os-nodejs/index.html)
+- [ ] Pruebas unitarios cubren un mínimo del 70% de statements, functions,
+      lines, y branches.
+- [ ] Pasa tests (y linters) (`npm test`).
