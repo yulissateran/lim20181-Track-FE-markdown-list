@@ -245,15 +245,7 @@ para usarlo programáticamente.
 | Nomenclatura/semántica | 3              |
 | Funciones/modularidad  | 3              |
 | Estructuras de datos   | 2              |
-| Tests                  | 4              |
-| **HTML**               |                |
-| Validación             | n/a            |
-| Estilo                 | n/a            |
-| Semántica              | n/a            |
-| SEO                    | n/a            |
-| **CSS**                |                |
-| DRY                    | n/a            |
-| Responsive             | n/a            |
+| Tests                  | 4              |  |
 | **SCM**                |                |
 | Git                    | 3              |
 | GitHub                 | 3              |
