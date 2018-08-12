@@ -12,7 +12,7 @@ fs.open('../README.md', 'r', (err, fd) => {
     fs.close(fd, (err) => {
       if (err) throw err;
     });
-  });cd ..
+  });
 });
 
 // destination.txt will be created or overwritten by default.
