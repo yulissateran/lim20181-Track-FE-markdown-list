@@ -1,19 +1,12 @@
 // const fs = require('fs');
 // const path = require('path');
 const http = require('http');
-// const server = http.createServer((req, res)=>{
-// if(req.url === '/src/view/main.html'){
-//   console.log(res);
-//   // res.write('Hello World');
-//   res.end();
-// }
-// });
-// server.listen(8887);
-// console.log('Listener on port 3000..');
+
 http.get('http://127.0.0.1:8887/src/view/main.html', (res) => {
   const { statusCode } = res;
   const contentType = res.headers['content-type'];
- console.log(statusCode);
+
+ console.log(contentType);
   let error;
   if (statusCode !== 200) {
     error = new Error('Request Failed.\n' +
@@ -25,11 +18,9 @@ http.get('http://127.0.0.1:8887/src/view/main.html', (res) => {
   // }
   if (error) {
     console.error(error.message);
-    // consume response data to free up memory
     res.resume();
     return;
   }
-
   res.setEncoding('utf8');
   let rawData = '';
   res.on('data', (chunk) => { 
