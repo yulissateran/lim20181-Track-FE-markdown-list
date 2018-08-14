@@ -1,18 +1,48 @@
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
+const http = require('http');
+// const server = http.createServer((req, res)=>{
+// if(req.url === '/src/view/main.html'){
+//   console.log(res);
+//   // res.write('Hello World');
+//   res.end();
+// }
+// });
+// server.listen(8887);
+// console.log('Listener on port 3000..');
+http.get('http://127.0.0.1:8887/src/view/main.html', (res) => {
+  const { statusCode } = res;
+  const contentType = res.headers['content-type'];
+ console.log(statusCode);
+  let error;
+  if (statusCode !== 200) {
+    error = new Error('Request Failed.\n' +
+                      `Status Code: ${statusCode}`);
+  } 
+  // else if (!/^application\/json/.test(contentType)) {
+  //   error = new Error('Invalid content-type.\n' +
+  //                     `Expected application/json but received ${contentType}`);
+  // }
+  if (error) {
+    console.error(error.message);
+    // consume response data to free up memory
+    res.resume();
+    return;
+  }
 
-console.log(path.normalize("https://www.youtube.com/watch?v=dtEVm5CaYiQ"));
-console.log('carpeta  ' + path.dirname('/foo/bar/baz/carpeta/index.html'));
-console.log('extension  ' + path.extname('index.html'));
-console.log('archivo + extención de archivo  ' + path.basename('/foo/bar/baz/asdf/quux.html'));
-console.log('archivo sin extensión  ' + path.basename('/foo/bar/baz/asdf/quux.html', '.html'));
-const objeto = path.parse('C:/Users/YulissaTerán/Documents/main.html');
-console.log('path.parse()  ', objeto);
-const objeto2= { 
-  root: 'C:/',
-dir: 'C:/Users/YulissaTerán/Documents',
-base: 'main.html',
-ext: '.html',
-name: 'main'
-};
-console.log(path.format(objeto2));
+  res.setEncoding('utf8');
+  let rawData = '';
+  res.on('data', (chunk) => { 
+    // console.log(chunk);
+    rawData += chunk; });
+  res.on('end', () => {
+    try {
+      const parsedData = (rawData).toString();
+      console.log(parsedData);
+    } catch (e) {
+      console.error(e.message);
+    }
+  });
+}).on('error', (e) => {
+  console.error(`Got error: ${e.message}`);
+});
