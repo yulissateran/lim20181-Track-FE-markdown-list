@@ -1,9 +1,8 @@
 const marked = require('marked');
 const fs = require('fs');
 const path = require('path');
-const route = '../README.md';
+// const route = '../README.md';
 // const absolutePath = path.resolve(route);
-
 const linkProcessor = (links, array, absolutePath) => {
   const text = ((/<a.*>(.*)<\/a>/g.exec(links[0]))[1]);
   const url = links[0].match(/(http:\/\/|https:\/\/|www\.|ftp:\/\/)[^\s"]+/gi)
@@ -26,7 +25,6 @@ const tagsExtractor = (data) => {
 };
 
 const mdLinks = (absolutePath) => {
-  console.log(absolutePath)
   // eslint-disable-next-line
   return new Promise((resolve, reject) => {
     const contentFile = fs.readFileSync(absolutePath, 'utf-8');
@@ -35,11 +33,16 @@ const mdLinks = (absolutePath) => {
     if (linksArray) {
       resolve(linkProcessor(linksArray, arrayOfObjects, absolutePath));
     } else {
-      reject(console.log('hubo un error'))
+      reject('hubo un error') ;
     } 
-   
   });
 };
+
+exports.mdLinks = mdLinks;
+exports.tagsExtractor = tagsExtractor;
+exports.linkProcessor = linkProcessor;
+module.exports = exports;
+
 
 // mdLinks(absolutePath).then((response) => {
 //   console.log(response, response.length);
@@ -49,17 +52,13 @@ const mdLinks = (absolutePath) => {
 
 
 // exports = main;
-exports.mdLinks = mdLinks;
-exports.tagsExtractor = tagsExtractor;
-exports.linkProcessor = linkProcessor;
-module.exports = exports;
-const routeVerifier = (absolutePath) =>{
-  if(path.isAbsolute(absolutePath)){
-     return {pathOriginal: absolutePath, newPath: absolutePath}
-  }else{
-  return {pathOriginal: absolutePath,newPath: path.resolve(absolutePath)}
-  }
-}
+// const routeVerifier = (absolutePath) =>{
+//   if(path.isAbsolute(absolutePath)){
+//      return {pathOriginal: absolutePath, newPath: absolutePath}
+//   }else{
+//   return {pathOriginal: absolutePath,newPath: path.resolve(absolutePath)}
+//   }
+// }
 // const openPath = fs.openSync(absolutePath, 'r'); 
 // const statePath = fs.fstatSync(openFile);
 
