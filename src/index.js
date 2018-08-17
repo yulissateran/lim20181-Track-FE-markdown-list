@@ -2,9 +2,9 @@ const marked = require('marked');
 const fs = require('fs');
 const path = require('path');
 const route = '../README.md';
-const absolutePath = path.resolve(route);
+// const absolutePath = path.resolve(route);
 
-const procesedLinks = (links, array, absolutePath) => {
+const linkProcessor = (links, array, absolutePath) => {
   const text = ((/<a.*>(.*)<\/a>/g.exec(links[0]))[1]);
   const url = links[0].match(/(http:\/\/|https:\/\/|www\.|ftp:\/\/)[^\s"]+/gi)
   const objectLink = {
@@ -15,8 +15,9 @@ const procesedLinks = (links, array, absolutePath) => {
   array.push(objectLink);
   links.shift();
   if (links.length >= 1) {
-    procesedLinks(links, array, absolutePath);
+    linkProcessor(links, array, absolutePath);
   }
+  console.log(array);
   return array;
 };
 
@@ -25,23 +26,40 @@ const tagsExtractor = (data) => {
 };
 
 const mdLinks = (absolutePath) => {
+  console.log(absolutePath)
   // eslint-disable-next-line
   return new Promise((resolve, reject) => {
     const contentFile = fs.readFileSync(absolutePath, 'utf-8');
     const arrayOfObjects = [];
     const linksArray = tagsExtractor(contentFile);
-    // console.log(absolutePath);
     if (linksArray) {
-      resolve(procesedLinks(linksArray, arrayOfObjects, absolutePath));
+      resolve(linkProcessor(linksArray, arrayOfObjects, absolutePath));
     } else {
       reject(console.log('hubo un error'))
-    }
+    } 
+   
   });
 };
-mdLinks(absolutePath).then((response) => {
-  console.log(response, response.length);
-});
-module.exports = mdLinks;
+
+// mdLinks(absolutePath).then((response) => {
+//   console.log(response, response.length);
+// }).catch((err)=>{
+//   console.log(err);
+// });
+
+
+// exports = main;
+exports.mdLinks = mdLinks;
+exports.tagsExtractor = tagsExtractor;
+exports.linkProcessor = linkProcessor;
+module.exports = exports;
+const routeVerifier = (absolutePath) =>{
+  if(path.isAbsolute(absolutePath)){
+     return {pathOriginal: absolutePath, newPath: absolutePath}
+  }else{
+  return {pathOriginal: absolutePath,newPath: path.resolve(absolutePath)}
+  }
+}
 // const openPath = fs.openSync(absolutePath, 'r'); 
 // const statePath = fs.fstatSync(openFile);
 

@@ -11,8 +11,9 @@
     "verbalize": "^0.2.0"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
     "jest": "^23.5.0",
-    "eslint": "^4.19.1"
+    "yarn": "^1.9.4"
   },
   "scripts": {
     "test": "jest"

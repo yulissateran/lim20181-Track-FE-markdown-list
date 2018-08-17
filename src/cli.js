@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const mdLinks = require('./index.js')
+const markdownLinks = require('./index.js');
+const mdLinks = markdownLinks.mdLinks;
 const path = require('path');
 // const [, , ...args] = process.argv;
 const args = process.argv[2];
