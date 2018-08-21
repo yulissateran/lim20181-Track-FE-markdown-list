@@ -1,8 +1,34 @@
 const marked = require('marked');
 const fs = require('fs');
-// const path = require('path');
+const path = require('path');
 const dir = require('node-dir');
 const http = require('http');
+const nopt = require('nopt');
+const option = {
+  state: false,
+  validate: false,
+  path: __dirname
+};
+const parsed = nopt(
+  {
+    'validate': Boolean,
+    'state': Boolean,
+    'path': path
+  },
+  {
+    's': '--state',
+    'v': '--validate',
+    'p': '--path'
+  }, process.argv, 2);
+const valuesFromCLI = (option, parsed) => {
+  console.log(parsed);
+  for (let prop in option) {
+    if (parsed[prop] !== undefined) option[prop] = parsed[prop];
+  }
+};
+console.log(option);
+valuesFromCLI(option, parsed);
+
 // process.on('message', function (n) {
 //   if (n === 42) {
 //       console.log('yes that is the answer');
