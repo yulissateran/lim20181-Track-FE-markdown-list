@@ -4,9 +4,12 @@
     "node": true,
     "mocha": true
   },
-  "parserOptions": {
-    "ecmaVersion": 7
-  },
+  "parser": "babel-eslint",
+ "parserOptions": {
+  "sourceType": "module",
+  "allowImportExportEverywhere": true,
+  "ecmaVersion": 7
+},
   "extends": "airbnb-base",
   "globals": {
     "assert": false

@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-const path = require('path');
-const nopt = require('nopt');
-const markdownLinks = require('./index.js');
-const mdLinks = markdownLinks.mdLinks;
+import nopt from 'nopt';
+import mdLinks from 'index.js';
 // const [, , ...args] = process.argv;
 const args = process.argv[2];
 const absolutePath = args;
@@ -30,8 +28,8 @@ console.log(option);
 valuesFromCLI(option, parsed);
 
 
-mdLinks(absolutePath).then((response) => {
-  console.log(response);
-}).catch((error) => {
-  console.log(error);
-});
+// mdLinks(absolutePath).then((response) => {
+//   console.log(response);
+// }).catch((error) => {
+//   console.log(error);
+// });
