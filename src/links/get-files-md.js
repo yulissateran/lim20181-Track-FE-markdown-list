@@ -9,4 +9,4 @@ const getFilesMd = ([head, ...body], _filesMd) => {
   }
   return _filesMd;
 };
-export default getFilesMd;
+module.exports = getFilesMd;

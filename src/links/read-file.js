@@ -1,6 +1,6 @@
-import getFileContent from 'get-file-content.js';
-import extractAnchorLabels from 'extract-anchor.js';
-import convertLinksToObjects from 'convert-links-objects.js';
+const getFileContent = require('./get-file-content.js');
+const extractAnchorLabels = require('./extract-anchor.js') ;
+const convertLinksToObjects = require('./convert-links-objects.js');
 
 /* se ejecuta si la ruta es de un archivo */
 const myReadFile = async(path) => {
@@ -13,5 +13,5 @@ const myReadFile = async(path) => {
     return err;
   } 
 };
-export default myReadFile;
-// myReadFile('../README.md').then((response)=> )
+module.exports = myReadFile;
+// myReadFile('../README.md').then((response)=> console.log(response))

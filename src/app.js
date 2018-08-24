@@ -1,4 +1,4 @@
-import * as http from 'http'
+// import * as http from 'http'
 const arrey = [
   {
     url: 'https://carlosazaustre.com/manejando-la-asincronia-en-javascript/',
@@ -26,13 +26,8 @@ const arrey = [
 // console.log(filterUnics(arrey))
 
 // newArray = array.map((element)=>element.url);
-// const unicos = (element, index, arr) =>{ 
-//    return arr.indexOf(element) === index;
-// };
+// const unicos = (element, index, arr) => arr.indexOf(element) === index;
 // console.log(array.filter(unicos));
-
-
-
 
 
 // const state =(array) =>{
@@ -58,31 +53,31 @@ const arrey = [
 
 // console.log(state2(arrey))
 
-const request = (link) => {
- const response = new Promise((resolve)=>{
-  http.get({
-    hostname: 'www.google.com',
-    path: '/',
-    url:  link 
-  }, (res) => {
-    const statusText = `${res.statusMessage}  ${res.statusCode}`
-   resolve(statusText); 
-  });
- }); 
- return response;
-};
-const validate = (arrayLinks) => {
-  const newArray = arrayLinks.map(async(objectLink) => {
-    try {
-      objectLink.validate = await request(objectLink.url);
-      return objectLink;      
-    } catch (err) {
-      throw err;
-    }
-  });
-  return newArray;
-}
-const iterable = validate(arrey); 
-Promise.all(iterable).then((res) => {
-  console.log(res)
-}).catch((err)=>{ throw err});
+// const request = (link) => {
+//  const response = new Promise((resolve)=>{
+//   http.get({
+//     hostname: 'www.google.com',
+//     path: '/',
+//     url:  link 
+//   }, (res) => {
+//     const statusText = `${res.statusMessage}  ${res.statusCode}`
+//    resolve(statusText); 
+//   });
+//  }); 
+//  return response;
+// };
+// const validate = (arrayLinks) => {
+//   const newArray = arrayLinks.map(async(objectLink) => {
+//     try {
+//       objectLink.validate = await request(objectLink.url);
+//       return objectLink;      
+//     } catch (err) {
+//       throw err;
+//     }
+//   });
+//   return newArray;
+// }
+// const iterable = validate(arrey); 
+// Promise.all(iterable).then((res) => {
+//   console.log(res)
+// }).catch((err)=>{ throw err});

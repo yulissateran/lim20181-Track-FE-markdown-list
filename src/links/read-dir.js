@@ -1,4 +1,4 @@
-import myReadFile from 'myReadFile';
+const myReadFile  = require('./read-file');
 /* toma el arreglo de rutas y retorna un arreglo de objetos 
 con propiedad href, text y path */
 const myReadDir = async ([head, ...body], _linksFiles) => {
@@ -13,11 +13,11 @@ const myReadDir = async ([head, ...body], _linksFiles) => {
     return err
   }
 };
-export default myReadDir;
+module.exports = myReadDir;
 
-const arrroutes = [ 'carpeta/mini-carpeta/README.md',
-'carpeta/mini-carpeta/READMA.md' ];
-myReadDir(arrroutes)
-.then((response)=>{ 
-}).catch((err)=>{
-})
+// const arrroutes = [ 'carpeta/mini-carpeta/README.md',
+// 'carpeta/mini-carpeta/READMA.md' ];
+// myReadDir(arrroutes)
+// .then((response)=>{ 
+// }).catch((err)=>{
+// })

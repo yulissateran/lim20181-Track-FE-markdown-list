@@ -14,4 +14,4 @@ const convertLinksToObjects = ([head, ...body], path, _linkAcum) => {
   }
   return _linkAcum;
 };
-export default convertLinksToObjects;
+module.exports = convertLinksToObjects;

@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+const fs = require('fs');
 
 /* Identifica si la ruta es de un archivo o directorio */
 // eslint-disable-next-line
@@ -11,5 +11,5 @@ const identifyFileOrDirectory = (route) => {
     });
   });
 };
-export default identifyFileOrDirectory;
+module.exports = identifyFileOrDirectory;
 // dentifyFileOrDirectory('../README.md').then((response)=>console.log(response));

@@ -1,4 +1,4 @@
-import getLinksFileOrDirectory from './get-links';
+const getLinksFileOrDirectory = require('./links/get-links');
 
 const mdLinks = (path, options) => {
   const route = path || __dirname;
@@ -10,5 +10,5 @@ const mdLinks = (path, options) => {
   } else if (path && !validate && state) {
   }
 };
-// import modulo from './hola.jsx'
-export default mdLinks;
+
+module.exports = mdLinks;

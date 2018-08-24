@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+const fs = require('fs');
 
 // obtiene contenido de un archivo
 const getFileContent = (route) => {
@@ -10,4 +10,4 @@ const getFileContent = (route) => {
   });
 };
 // getFileContent('../README.md').then((response)=> )
-export default getFileContent;
+module.exports = getFileContent;

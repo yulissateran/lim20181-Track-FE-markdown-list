@@ -1,4 +1,4 @@
-import * as dir from 'node-dir';
+const dir = require('node-dir');
 
 const getFilesDirectory = (directory) => {
   return new Promise((resolve, reject) => {
@@ -8,5 +8,5 @@ const getFilesDirectory = (directory) => {
     });
   });
 };
-export default getFilesDirectory;
+module.exports = getFilesDirectory;
 // getFilesDirectory('./carpeta')
