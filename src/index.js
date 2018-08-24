@@ -3,51 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const dir = require('node-dir');
 const http = require('http');
-const nopt = require('nopt');
-const option = {
-  state: false,
-  validate: false,
-  path: __dirname
-};
-const parsed = nopt(
-  {
-    'validate': Boolean,
-    'state': Boolean,
-    'path': path
-  },
-  {
-    's': '--state',
-    'v': '--validate',
-    'p': '--path'
-  }, process.argv, 2);
-const valuesFromCLI = (option, parsed) => {
-  console.log(parsed);
-  for (let prop in option) {
-    if (parsed[prop] !== undefined) option[prop] = parsed[prop];
-  }
-};
-console.log(option);
-valuesFromCLI(option, parsed);
-
-// process.on('message', function (n) {
-//   if (n === 42) {
-//       console.log('yes that is the answer');
-//   } else {
-//       console.log('nope');
-//   }
-// });
-// process.on('disconnect', function (a, b) {
-//   console.log('okay, goodbye');
-// });
 const req = http.request({
   hostname: 'www.google.com'
 }, (res) => {
   console.log(res.statusCode);
 });
 req.end();
-
 /* Toma el arreglo de objetos [{links: [link, link], path: path}] e invoca a la función
-  linkProcessor(links, array, route) con las propiedades de cada objeto por  medio de recursividad */
+linkProcessor(links, array, route) con las propiedades de cada objeto por  medio de recursividad */
 const processorLinksDirectory = (arrayContentFiles, array) => {
   const links = arrayContentFiles[0].link;
   const route = arrayContentFiles[0].path;
@@ -58,8 +21,8 @@ const processorLinksDirectory = (arrayContentFiles, array) => {
   }
   return array;
 };
-
-/* toma el arreglo de rutas de archivos md y retorna un arreglo de objetos con propiedad links y path*/
+/* toma el arreglo de rutas de archivos md y retorna un arreglo de objetos con
+ propiedad links y path */
 const readFile = (pathsArray, arrayContentFiles) => {
   const content = fs.readFileSync(pathsArray[0], 'utf-8');
   const objectFile = {
@@ -73,7 +36,7 @@ const readFile = (pathsArray, arrayContentFiles) => {
   }
   return arrayContentFiles;
 };
-/* toma el arreglo de rutas de archivos existentes dentro de una carpeta 
+/* toma el arreglo de rutas de archivos existentes dentro de una carpeta
 y sus subscarpetas y retorna todos los que sean .md */
 const matchFileMd = (arrayFilesMd, files) => {
   files[0].match(/.md$/) ? arrayFilesMd.push(files[0]) : arrayFilesMd;
@@ -83,11 +46,11 @@ const matchFileMd = (arrayFilesMd, files) => {
   }
   return arrayFilesMd;
 };
-/* Recibe la ruta de una carpeta ,obtiene un arreglo con las rutas 
-de todos los archivos anidados existentes y se loa pasa a la función 
-que filtrará los archivos .md . Con ese resultado invoca a la función 
+/* Recibe la ruta de una carpeta ,obtiene un arreglo con las rutas
+de todos los archivos anidados existentes y se loa pasa a la función
+que filtrará los archivos .md . Con ese resultado invoca a la función
 que retornará los links existentes y la ruta de cada archivo en un arreglo de objetos,
-con ese arreglo se invocará a la función que retornará el array de objetos {text,link, path}*/
+con ese arreglo se invocará a la función que retornará el array de objetos {text,link, path} */
 const filesDirectory = (directory) => {
   return new Promise((resolve, reject) => {
     dir.files(directory, (err, files) => {
@@ -102,7 +65,7 @@ const filesDirectory = (directory) => {
     });
   });
 };
-/* Toma el arreglo de links y la ruta de un archivo y los agrega a un 
+/* Toma el arreglo de links y la ruta de un archivo y los agrega a un
 arreglo de objetos con las prop: {text: text, href: href, path: path} */
 const linkProcessor = (links, array, absolutePath) => {
   const text = ((/<a.*>(.*)<\/a>/g.exec(links[0]))[1]);
@@ -110,22 +73,20 @@ const linkProcessor = (links, array, absolutePath) => {
   const objectLink = {
     text,
     url: url.pop(),
-    pathFile: absolutePath
+    pathFile: absolutePath,
   };
   array.push(objectLink);
   links.shift();
-  if (links[0]) {
-    linkProcessor(links, array, absolutePath);
-  }
+  if (links[0]) linkProcessor(links, array, absolutePath);
   return array;
 };
 
-/* convierte el contenido markdown a html y retorna todos los links encontrados en un array*/
+/* convierte el contenido markdown a html y retorna todos los links encontrados en un array */
 const tagsExtractor = (data) => {
   return marked(data).match(/<a.*>(.*)<\/a>/g);
 };
 
-/* se ejecuta si la ruta es de un archivo*/
+/* se ejecuta si la ruta es de un archivo */
 const readFileSingle = (absolutePath) => {
   // eslint-disable-next-line
   return new Promise((resolve, reject) => {
@@ -135,7 +96,7 @@ const readFileSingle = (absolutePath) => {
     if (linksArray) {
       resolve(linkProcessor(linksArray, arrayOfObjects, absolutePath));
     } else {
-      reject('hubo un error');
+      reject(new Error());
     }
   });
 };
@@ -151,6 +112,41 @@ routeIdentifier('carpeta').then((response) => {
 }).catch((error) => {
   console.log(error);
 });
+
+// const validate
+const mdLinks = (route, options) => {
+  // const path = path || __dirname;
+  const { validate, state } = options;
+  if (path && !validate && !state) {
+    routeIdentifier(path);
+  } else if (path && validate && !state) {
+    routeIdentifier();
+  } else if (path && !validate && state) {
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+// process.on('message', function (n) {
+//   if (n === 42) {
+//       console.log('yes that is the answer');
+//   } else {
+//       console.log('nope');
+//   }
+// });
+// process.on('disconnect', function (a, b) {
+//   console.log('okay, goodbye');
+// });
+
 
 // exports.mdLinks = mdLinks;
 // exports.tagsExtractor = tagsExtractor;

@@ -5,14 +5,14 @@
     "mocha": true
   },
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 7
   },
-  "extends": "eslint:recommended",
+  "extends": "airbnb-base",
   "globals": {
-    "assert": false,
-    "cipher": false
+    "assert": false
   },
   "rules": {
+    "linebreak-style":0 ,
     "keyword-spacing": 1,
     "space-before-function-paren": [1, "never"],
     "eqeqeq": 1,

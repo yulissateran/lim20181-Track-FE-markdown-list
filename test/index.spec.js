@@ -214,7 +214,7 @@ test('Debería retornar un array de 3 objetos con las propiedades href, path, te
 test('Debería retornar una promesa que se resuelva a un array de objetos', () => {
   // eslint-disable-next-line no-undef
   // expect.assertions(1);
-  return mdLinks('README.md').then(data => {
+ mdLinks('README.md').then(data => {
     // eslint-disable-next-line no-undef
     expect(data).toEqual(arrayObjectsLinkReadme);
   });
