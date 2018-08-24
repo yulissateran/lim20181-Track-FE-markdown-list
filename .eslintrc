@@ -33,7 +33,8 @@
     "spaced-comment": 1,
     "quotes": [1, "single"],
     "id-length": [1, { "exceptions": ["i", "j", "x"] }],
-    "indent": [1, 2],
-    "no-array-constructor": 1
+    "indent": [2, 2],
+    "no-array-constructor": 1,
+    "no-param-reassign": 0
   }
 }

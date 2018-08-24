@@ -26,6 +26,3 @@ module.exports = getLinksFileOrDirectory;
 
 // getLinksFileOrDirectory('./carpeta').then((response)=> console.log(response, response.length))
 // .catch((err)=>{console.log(err)});
-
-// getLinksFileOrDirectory('../README.md').then((response)=> console.log(response, response.length))
-// .catch((err)=>{console.log(err)});

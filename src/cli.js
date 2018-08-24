@@ -1,35 +1,39 @@
 #!/usr/bin/env node
-import nopt from 'nopt';
-import mdLinks from 'index.js';
-// const [, , ...args] = process.argv;
-const args = process.argv[2];
-const absolutePath = args;
+const nopt = require('nopt');
+const path = require('path');
+const mdLinks = require('./index.js');
+
 const option = {
-  state: false,
+  path: __dirname,
   validate: false,
-  path: __dirname
+  state: false,
 };
 const parsed = nopt(
   {
-    'validate': Boolean,
-    'state': Boolean,
+    path,
+    validate: Boolean,
+    state: Boolean,
   },
   {
-    's': '--state',
-    'v': '--validate'
-  }, process.argv, 3);
-const valuesFromCLI = (option, parsed) => {
-  console.log(parsed);
-  for (let prop in option) {
-    if (parsed[prop] !== undefined) option[prop] = parsed[prop];
-  }
+    path: '-p',
+    state: '--state',
+    validate: '--validate',
+  }, process.argv, 2
+);
+const valuesFromCLI = (options, parseds) => {
+  const keys = Object.keys(options);
+  keys.forEach((elem) => {
+    if (parseds[elem]) {
+      options[elem] = parseds[elem];
+    }
+  });
+  return options;
 };
-console.log(option);
-valuesFromCLI(option, parsed);
 
+const newOptions = valuesFromCLI(option, parsed);
 
-// mdLinks(absolutePath).then((response) => {
-//   console.log(response);
-// }).catch((error) => {
-//   console.log(error);
-// });
+mdLinks(newOptions).then((response) => {
+  console.log(response);
+}).catch((error) => {
+  console.log(error);
+});
