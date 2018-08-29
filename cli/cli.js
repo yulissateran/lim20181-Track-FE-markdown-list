@@ -32,9 +32,17 @@ const newOptions = valuesFromCLI(option, parsed);
 mdLinks(route, newOptions).then((response) => {
   if (typeof response === 'object') {
     response.forEach((elem) => {
-      process.stdout.write(` ${elem.path}  ${elem.href}  ${elem.text}  ${elem.state || ''}  \n`);
+      if (elem.path) {
+        process.stdout.write(` ${elem.path}  ${elem.href}  ${elem.text}  ${elem.state || ''}  \n`);
+      } else if (elem.broken) {
+        process.stdout.write(`total: ${elem.total} uniques: ${elem.unique} broken: ${elem.broken}`);
+      } else {
+        process.stdout.write(`total: ${elem.total} uniques: ${elem.unique} `);
+      }
+
+
     });
-  }else{
+  } else {
     process.stdout.write(response);
   }
 }).catch((error) => {
