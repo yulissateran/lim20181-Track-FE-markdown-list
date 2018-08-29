@@ -6,15 +6,15 @@ const mdLinks = require('../lib/index.js');
 const route = process.argv[2];
 const option = {
   validate: false,
-  state: false,
+  stats: false,
 };
 const parsed = nopt(
   {
     validate: Boolean,
-    state: Boolean,
+    stats: Boolean,
   },
   {
-    state: '--state',
+    stats: '--stats',
     validate: '--validate',
   }, process.argv, 3
 );
@@ -29,11 +29,10 @@ const valuesFromCLI = (options, parseds) => {
 };
 
 const newOptions = valuesFromCLI(option, parsed);
-console.log(route,   newOptions)
 mdLinks(route, newOptions).then((response) => {
   if (typeof response === 'object') {
     response.forEach((elem) => {
-      process.stdout.write(`${elem.href} | ${elem.text} | ${elem.state || ''} | ${elem.path} \n`);
+      process.stdout.write(` ${elem.path}  ${elem.href}  ${elem.text}  ${elem.state || ''}  \n`);
     });
   }else{
     process.stdout.write(response);
