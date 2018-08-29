@@ -2,23 +2,21 @@
 const nopt = require('nopt');
 const path = require('path');
 const mdLinks = require('../lib/index.js');
-console.log(__dirname)
+
+const route = process.argv[2];
 const option = {
-  path: __dirname,
   validate: false,
   state: false,
 };
 const parsed = nopt(
   {
-    path,
     validate: Boolean,
     state: Boolean,
   },
   {
-    path: '-p',
     state: '--state',
     validate: '--validate',
-  }, process.argv, 2
+  }, process.argv, 3
 );
 const valuesFromCLI = (options, parseds) => {
   const keys = Object.keys(options);
@@ -31,9 +29,15 @@ const valuesFromCLI = (options, parseds) => {
 };
 
 const newOptions = valuesFromCLI(option, parsed);
-
-mdLinks(newOptions).then((response) => {
-  console.log(response);
+console.log(route,   newOptions)
+mdLinks(route, newOptions).then((response) => {
+  if (typeof response === 'object') {
+    response.forEach((elem) => {
+      process.stdout.write(`${elem.href} | ${elem.text} | ${elem.state || ''} | ${elem.path} \n`);
+    });
+  }else{
+    process.stdout.write(response);
+  }
 }).catch((error) => {
-  console.log(error);
+  console.log('error', error);
 });

@@ -2,14 +2,14 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true
+    "jest": true
   },
  "parserOptions": {
   "ecmaVersion": 7
 },
   "extends": "airbnb-base",
   "globals": {
-    "assert": false
+  "expect": true
   },
   "rules": {
     "linebreak-style":0 ,
