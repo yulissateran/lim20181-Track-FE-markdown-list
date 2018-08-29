@@ -2,14 +2,14 @@
 
 Los archivos `Markdown` normalmente contienen _links_ (vínculos/ligas) que
 muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de
-la información que se quiere compartir.
+la información que se quiere compartir.123AE#$%4567890123
 
-Por esto se ah creado `yulissateran/md-links`, que lee y analiza archivos
+Por esto se ah creado `yulissateran-md-links`, que lee y analiza archivos
 en formato `Markdown`, verifica los links que contienen y reporta
 algunas estadísticas.
 
 ## Instalación
-`npm install yulissateran/md-links`
+`npm install yulissateran-md-links`
 Módulo instalable via . Este módulo debe
 
 ### CLI (Línea de comando)
