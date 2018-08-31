@@ -10,6 +10,4 @@
  Las características de los Inmigrantes digitales son: Estructuras mentales moldeadas por los procesos paso a paso. Resolver un problema a la vez. Actuación basada en el análisis deductivo. Aprendizaje basado en conocimientos pre-adquiridos. Los migrantes digitales son mas relajados y les gusta entablar una conversación con una persona y para pasar a otra terminan la anterior
 ##  ¿Qué problema resuelve el producto para estos usuarios?
 
-[blog digimin](esto.noesunlink.es)
-
 

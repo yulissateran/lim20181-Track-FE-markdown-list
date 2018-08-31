@@ -18,7 +18,7 @@ así como las fuentes de letras de la marca:
 - Open sans.
 
 ## Instrucciones 
-Para visualizar la funcionalidad del proyecto  ingresa aquí [repositorio1](https://github.com/dcrisanto/lim-2018-05-bc-core-am-datadashboard) o aquí [repositorio22](https://github.com/yulissateran/lim-2018-05-bc-core-am-datadashboard) 
+Para visualizar la funcionalidad del proyecto  ingresa aquí [repositorio1](https://github..com/dcrisanto/lim-2018-05-bc-core-am-datadashboard) o aquí [repositorio22](https://github.com/yulissateran/lim-2018-05-bc-core-am-datadashboard) 
 
 ## Planing del proyecto 
 
